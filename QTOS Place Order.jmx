@@ -573,8 +573,8 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Order Placement Via Customer App">
         <stringProp name="TestPlan.comments">Order Placement Via Customer App</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
-        <intProp name="ThreadGroup.num_threads">5</intProp>
-        <intProp name="ThreadGroup.ramp_time">10</intProp>
+        <intProp name="ThreadGroup.num_threads">500</intProp>
+        <intProp name="ThreadGroup.ramp_time">300</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -1064,8 +1064,8 @@ log.info(&quot;Loop count set to: &quot; + randomLoops)
 If you don’t reset it, it keeps old values.</stringProp>
         </JSR223Sampler>
         <hashTree/>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-          <stringProp name="LoopController.loops">2</stringProp>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
         </LoopController>
         <hashTree>
           <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
@@ -1492,23 +1492,24 @@ log.info(&quot;PreProcessor selected currentItemId: &quot; + selectedId)
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Random Item Count For Update" enabled="true">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Random Item Count For Update">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="cacheKey">true</stringProp>
           <stringProp name="script">def randomCount = org.apache.commons.lang3.RandomUtils.nextInt(1, 3)
 // 1 to 2 (upper bound exclusive)
+// vars.put(&quot;randomItemCount&quot;, randomCount.toString())
+vars.put(&quot;randomItemCount&quot;, &quot;1&quot;)
 
-vars.put(&quot;randomItemCount&quot;, randomCount.toString())
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="CUSTOMER - I Want To Order More - View Items Agian" enabled="true">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="CUSTOMER - I Want To Order More - View Items Agian">
           <stringProp name="LoopController.loops">${randomItemCount}</stringProp>
         </LoopController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Reopen Item Details For Update Order" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Reopen Item Details For Update Order">
             <stringProp name="TestPlan.comments">Created from cURL on 2025-11-18T13:53:43.9945318</stringProp>
             <stringProp name="HTTPSampler.domain">${server}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -1546,7 +1547,7 @@ vars.put(&quot;randomItemCount&quot;, randomCount.toString())
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Build Json" enabled="true">
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Build Json">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -1604,7 +1605,7 @@ log.info(&quot;Final update payload: &quot; + JsonOutput.toJson(itemsList))
             <hashTree/>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - Update Order" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - Update Order">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-16T17:15:30.535</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1768,7 +1769,7 @@ def token = props.get(&quot;waiter_&quot; + restaurantId + &quot;_stress8wtr&quo
 vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Push Item To KDS" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Push Item To KDS">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1813,7 +1814,7 @@ vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="KDS - View Dashboard" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="KDS - View Dashboard">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:56:33.629</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1953,7 +1954,7 @@ vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Marking As Served Failed" enabled="true">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Marking As Served Failed">
           <stringProp name="IfController.condition">&quot;${JMeterThread.last_sample_ok}&quot; == &quot;false&quot;</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
@@ -2375,14 +2376,14 @@ vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Payment Failed" enabled="true">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Payment Failed">
           <stringProp name="IfController.condition">&quot;${JMeterThread.last_sample_ok}&quot; == &quot;false&quot;</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
           <stringProp name="TestPlan.comments">If Payment is unsuccessfull, cancel the order</stringProp>
         </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cancel The Order" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cancel The Order">
             <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:52:32.605</stringProp>
             <stringProp name="HTTPSampler.domain">${server}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2403,7 +2404,7 @@ vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
             <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="accept" elementType="Header">
                   <stringProp name="Header.name">accept</stringProp>
