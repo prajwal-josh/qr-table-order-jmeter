@@ -350,7 +350,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         </elementProp>
       </SetupThreadGroup>
       <hashTree>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
           <stringProp name="filename">Cashier Login Stress Testing - Sheet1.csv</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="variableNames">restaurant_name,restaurant_id,cashier_code,cash_email,cash_role,cash_pwd</stringProp>
@@ -362,7 +362,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cashier Login" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cashier Login">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:17:04.453</stringProp>
           <stringProp name="HTTPSampler.domain">api-test.qrcodetableordering.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -388,7 +388,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Accept" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
@@ -414,14 +414,14 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
             <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:17:04.454</stringProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extrating Cashier Token" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extrating Cashier Token">
             <stringProp name="JSONPostProcessor.referenceNames">cashiertoken</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.loginAudit.token </stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -431,7 +431,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
           <stringProp name="ConstantTimer.delay">10000</stringProp>
         </ConstantTimer>
         <hashTree/>
@@ -460,7 +460,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manager Login" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manager Login">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-23T15:44:12.26</stringProp>
           <stringProp name="HTTPSampler.domain">api-test.qrcodetableordering.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -610,19 +610,19 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
           <stringProp name="filename">Start Session Radom In Order Of Restaurants.csv</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="variableNames">restaurant_name,restaurant_id,table_id</stringProp>
           <boolProp name="ignoreFirstLine">true</boolProp>
           <stringProp name="delimiter">,</stringProp>
           <boolProp name="quotedData">false</boolProp>
-          <boolProp name="recycle">true</boolProp>
-          <boolProp name="stopThread">true</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">false</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Session" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Session">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-11-18T15:17:53.7165476</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -672,7 +672,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
             <stringProp name="TestPlan.comments">Created from cURL on 2025-11-18T13:56:28.222922</stringProp>
           </HeaderManager>
           <hashTree/>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
             <stringProp name="ConstantTimer.delay">2000</stringProp>
             <stringProp name="RandomTimer.range">5000</stringProp>
           </UniformRandomTimer>
