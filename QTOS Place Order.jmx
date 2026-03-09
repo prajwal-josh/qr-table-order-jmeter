@@ -2776,6 +2776,30 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="All APIs Error Response">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">def responseCode = prev.getResponseCode()
+def responseMessage = prev.getResponseMessage()
+def samplerName = prev.getSampleLabel()
+
+// Log only 4xx and 5xx
+if (responseCode.startsWith(&quot;4&quot;) || responseCode.startsWith(&quot;5&quot;)) {
+
+    log.error(&quot;========= API ERROR =========&quot;)
+    log.error(&quot;Sampler: &quot; + samplerName)
+    log.error(&quot;Thread: &quot; + Thread.currentThread().getName())
+    log.error(&quot;Response Code: &quot; + responseCode)
+    log.error(&quot;Response Message: &quot; + responseMessage)
+    log.error(&quot;Request URL: &quot; + prev.getURL())
+    log.error(&quot;Request Body: &quot; + prev.getQueryString())
+    log.error(&quot;Response Body: &quot; + prev.getResponseDataAsString())
+    log.error(&quot;=============================&quot;)
+}</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
