@@ -1505,24 +1505,23 @@ try {
 
     def items = json.data.order.orderedItems
 
-   def notServedItemIds =[];
-    def servedItemsIds = []
+    def notServedItemIds = []
+    def servedItemIds = []
 
     items.each { item -&gt;
 
-        if(item.itemStatus == &quot;SERVED&quot;){
-            servedItems.add(item.id);
-        }else {
-		notServedItemIds.add(item.id);
-		}
+        if (item.itemStatus == &quot;SERVED&quot;) {
+            servedItemIds.add(item.id)
+        } else {
+            notServedItemIds.add(item.id)
+        }
 
     }
 
     vars.put(&quot;nonServedItemArray&quot;, JsonOutput.toJson(notServedItemIds))
-   
-    vars.put(&quot;servedItemArray&quot;, JsonOutput.toJson(servedItems))
+    vars.put(&quot;servedItemArray&quot;, JsonOutput.toJson(servedItemIds))
 
-    log.info(&quot;nonServed  items: &quot; + vars.get(&quot;nonServedItemArray&quot;))
+    log.info(&quot;nonServed items: &quot; + vars.get(&quot;nonServedItemArray&quot;))
     log.info(&quot;SERVED items: &quot; + vars.get(&quot;servedItemArray&quot;))
 
 } catch (Exception e) {
