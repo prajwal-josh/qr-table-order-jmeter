@@ -573,7 +573,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Order Placement Via Customer App">
         <stringProp name="TestPlan.comments">Order Placement Via Customer App</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
-        <intProp name="ThreadGroup.num_threads">25000</intProp>
+        <intProp name="ThreadGroup.num_threads">15000</intProp>
         <intProp name="ThreadGroup.ramp_time">3600</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
@@ -585,7 +585,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="restaurant_idd" elementType="Argument">
               <stringProp name="Argument.name">restaurant_idd</stringProp>
