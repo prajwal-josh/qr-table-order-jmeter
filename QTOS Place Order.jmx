@@ -573,7 +573,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Order Placement Via Customer App">
         <stringProp name="TestPlan.comments">Order Placement Via Customer App</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
-        <intProp name="ThreadGroup.num_threads">10000</intProp>
+        <intProp name="ThreadGroup.num_threads">15000</intProp>
         <intProp name="ThreadGroup.ramp_time">3600</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
@@ -901,7 +901,7 @@ if (index &lt; total) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler">
           <boolProp name="displayJMeterProperties">false</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
@@ -1585,7 +1585,7 @@ vars.put(&quot;randomItemCount&quot;, &quot;1&quot;)
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="CUSTOMER - I Want To Order More - View Items Agian" enabled="true">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="CUSTOMER - I Want To Order More - View Items Agian">
           <stringProp name="LoopController.loops">${randomItemCount}</stringProp>
         </LoopController>
         <hashTree>
