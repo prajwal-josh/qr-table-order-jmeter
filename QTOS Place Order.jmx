@@ -574,7 +574,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         <stringProp name="TestPlan.comments">Order Placement Via Customer App</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
         <intProp name="ThreadGroup.num_threads">10000</intProp>
-        <intProp name="ThreadGroup.ramp_time">1200</intProp>
+        <intProp name="ThreadGroup.ramp_time">1800</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -2172,7 +2172,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MANAGER - LIVE ORDERS" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MANAGER - LIVE ORDERS" enabled="false">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-23T15:05:46.29</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2295,7 +2295,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CASHIER - LIVE ORDERS" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CASHIER - LIVE ORDERS" enabled="false">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-23T15:05:46.29</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2418,7 +2418,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CASHIER - Make Payment And Close Transaction" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CASHIER - Make Payment And Close Transaction">
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/payment</stringProp>
@@ -2461,7 +2461,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Payment Failed" enabled="true">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Payment Failed">
           <stringProp name="IfController.condition">&quot;${JMeterThread.last_sample_ok}&quot; == &quot;false&quot;</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
@@ -2561,7 +2561,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
             <hashTree/>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Clean The Table" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Clean The Table">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2605,7 +2605,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Make Table Available" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Make Table Available">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2766,7 +2766,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
         <hashTree/>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="KDS ID for KDS tickets list" enabled="true">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="KDS ID for KDS tickets list">
           <stringProp name="filename">KDS Login Stress Testing - Sheet1.csv</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="variableNames">restaurant_name,restaurant_id,kds_code,kds_email,kds_role,kds_id,kds_pwd</stringProp>
