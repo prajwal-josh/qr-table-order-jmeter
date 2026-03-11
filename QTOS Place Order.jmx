@@ -6,6 +6,8 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp - Generate Token ">
@@ -20,7 +22,7 @@
         </elementProp>
       </SetupThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-12T15:46:06.723</stringProp>
           <stringProp name="HTTPSampler.domain">api-test.qrcodetableordering.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -115,12 +117,14 @@
             <stringProp name="JSONPostProcessor.defaultValues">TOKEN_NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="script">props.put(&quot;global_token&quot;, vars.get(&quot;token&quot;))</stringProp>
+            <stringProp name="script">props.put(&quot;global_token&quot;, vars.get(&quot;token&quot;))
+
+</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
@@ -137,7 +141,7 @@
         </elementProp>
       </SetupThreadGroup>
       <hashTree>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
           <stringProp name="filename">Waiter Login Stress Testing - Sheet1.csv</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="variableNames">restaurant_name,restaurant_id,waiter_code,waiter_role,waiter_pwd</stringProp>
@@ -149,7 +153,7 @@
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Waiter Login" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Waiter Login">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:17:04.453</stringProp>
           <stringProp name="HTTPSampler.domain">api-test.qrcodetableordering.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -175,7 +179,7 @@
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Accept" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
@@ -208,7 +212,7 @@
             <stringProp name="JSONPostProcessor.defaultValues">WAITER_TOKEN_NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -233,12 +237,12 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
         <hashTree/>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
           <stringProp name="ConstantTimer.delay">10000</stringProp>
         </ConstantTimer>
         <hashTree/>
       </hashTree>
-      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="KDS Login - Generate Token">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="KDS Login - Generate Token" enabled="true">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">180</intProp>
@@ -336,7 +340,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         </ConstantTimer>
         <hashTree/>
       </hashTree>
-      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Cashier Login - Generate Token">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Cashier Login - Generate Token" enabled="true">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">180</intProp>
@@ -360,7 +364,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cashier Login" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cashier Login">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:17:04.453</stringProp>
           <stringProp name="HTTPSampler.domain">api-test.qrcodetableordering.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -419,7 +423,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
             <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -429,7 +433,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
           <stringProp name="ConstantTimer.delay">10000</stringProp>
         </ConstantTimer>
         <hashTree/>
@@ -458,7 +462,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manager Login" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manager Login">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-23T15:44:12.26</stringProp>
           <stringProp name="HTTPSampler.domain">api-test.qrcodetableordering.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -546,20 +550,19 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
             <stringProp name="TestPlan.comments">Created from cURL on 2026-02-23T15:44:12.26</stringProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extrating Manager Token" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extrating Manager Token">
             <stringProp name="JSONPostProcessor.referenceNames">managertoken</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.loginAudit.token </stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="script">props.put(&quot;manager_&quot; + vars.get(&quot;restaurant_id&quot;), vars.get(&quot;managertoken&quot;))
-</stringProp>
+            <stringProp name="script">props.put(&quot;manager_&quot; + vars.get(&quot;restaurant_id&quot;), vars.get(&quot;managertoken&quot;))</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
@@ -571,7 +574,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Order Placement Via Customer App">
         <stringProp name="TestPlan.comments">Order Placement Via Customer App</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
-        <intProp name="ThreadGroup.num_threads">30000</intProp>
+        <intProp name="ThreadGroup.num_threads">35000</intProp>
         <intProp name="ThreadGroup.ramp_time">5400</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
@@ -773,7 +776,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="View Items By Category">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="View Items By Category" enabled="true">
           <stringProp name="LoopController.loops">${category_id_matchNr}</stringProp>
         </LoopController>
         <hashTree>
@@ -905,7 +908,7 @@ if (index &lt; total) {
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - View Item List">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - View Item List" enabled="true">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-12T15:58:11.945</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -949,7 +952,7 @@ if (index &lt; total) {
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="accept" elementType="Header">
                 <stringProp name="Header.name">accept</stringProp>
@@ -1011,21 +1014,21 @@ if (index &lt; total) {
             <stringProp name="TestPlan.comments">Created from cURL on 2026-02-12T15:58:11.945</stringProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">item_id</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.items[*].id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">ITEM_ID_NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">is_available</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.items[*].isAvailable</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">ITEM_ID_NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract Random Item ID With Availability Flag = true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract Random Item ID With Availability Flag = true" enabled="true">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1046,13 +1049,13 @@ log.info(&quot;Loop count set to: &quot; + randomLoops)
 </stringProp>
           </JSR223PostProcessor>
           <hashTree/>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
             <stringProp name="ConstantTimer.delay">2000</stringProp>
             <stringProp name="RandomTimer.range">5000</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Reset allOrderedItems">
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Reset allOrderedItems" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -1063,11 +1066,11 @@ log.info(&quot;Loop count set to: &quot; + randomLoops)
 If you don’t reset it, it keeps old values.</stringProp>
         </JSR223Sampler>
         <hashTree/>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <stringProp name="LoopController.loops">5</stringProp>
         </LoopController>
         <hashTree>
-          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter">
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
             <stringProp name="CounterConfig.start">1</stringProp>
             <stringProp name="CounterConfig.end"></stringProp>
             <stringProp name="CounterConfig.incr">1</stringProp>
@@ -1076,7 +1079,7 @@ If you don’t reset it, it keeps old values.</stringProp>
             <boolProp name="CounterConfig.per_user">true</boolProp>
           </CounterConfig>
           <hashTree/>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1115,7 +1118,7 @@ log.info(&quot;Selected AVAILABLE currentItemId: &quot; + selectedId)
 </stringProp>
           </JSR223PreProcessor>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - View Items Details">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - View Items Details" enabled="true">
             <stringProp name="TestPlan.comments">Created from cURL on 2026-02-17T15:23:34.565</stringProp>
             <stringProp name="HTTPSampler.domain">${server}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1145,7 +1148,7 @@ log.info(&quot;Selected AVAILABLE currentItemId: &quot; + selectedId)
             <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="accept" elementType="Header">
                   <stringProp name="Header.name">accept</stringProp>
@@ -1207,20 +1210,20 @@ log.info(&quot;Selected AVAILABLE currentItemId: &quot; + selectedId)
               <stringProp name="TestPlan.comments">Created from cURL on 2026-02-17T15:23:34.565</stringProp>
             </HeaderManager>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">has_modifier</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.item.hasModifierAssigned </stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
               <stringProp name="JSONPostProcessor.defaultValues">false</stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">modifierDetailsJson </stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.item.modifierDetails </stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Build JSon For Place Order">
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Build JSon For Place Order" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -1325,7 +1328,7 @@ log.info(&quot;Updated orderedItems: &quot; + JsonOutput.toJson(itemsList))
 </stringProp>
             </JSR223PostProcessor>
             <hashTree/>
-            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -1359,14 +1362,14 @@ log.info(&quot;PreProcessor selected currentItemId: &quot; + selectedId)
 </stringProp>
             </JSR223PreProcessor>
             <hashTree/>
-            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
               <stringProp name="ConstantTimer.delay">2000</stringProp>
               <stringProp name="RandomTimer.range">5000</stringProp>
             </UniformRandomTimer>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - Place Order">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - Place Order" enabled="true">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-12T17:08:19.279</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1398,7 +1401,7 @@ log.info(&quot;PreProcessor selected currentItemId: &quot; + selectedId)
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="accept" elementType="Header">
                 <stringProp name="Header.name">accept</stringProp>
@@ -1490,7 +1493,7 @@ log.info(&quot;PreProcessor selected currentItemId: &quot; + selectedId)
             <stringProp name="JSONPostProcessor.defaultValues">ITEM_NOT_FOUND_IN_PLACEORDER_API</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Json Array For PUSH items to KDS">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Json Array For PUSH items to KDS" enabled="true">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1529,7 +1532,7 @@ try {
 }</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract placedOrderedItems">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract placedOrderedItems" enabled="true">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1546,7 +1549,7 @@ vars.put(&quot;placedOrderedItems&quot;, JsonOutput.toJson(orderedItems))
 vars.put(&quot;placedOrderedItemsCount&quot;, orderedItems.size().toString())</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract OrderId from Place Order response">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract OrderId from Place Order response" enabled="true">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1587,7 +1590,7 @@ try {
           <stringProp name="LoopController.loops">${randomItemCount}</stringProp>
         </LoopController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Reopen Item Details For Update Order">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Reopen Item Details For Update Order" enabled="true">
             <stringProp name="TestPlan.comments">Created from cURL on 2025-11-18T13:53:43.9945318</stringProp>
             <stringProp name="HTTPSampler.domain">${server}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -1602,7 +1605,7 @@ try {
             <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Authorization" elementType="Header">
                   <stringProp name="Header.name">Authorization</stringProp>
@@ -1612,20 +1615,20 @@ try {
               <stringProp name="TestPlan.comments">Created from cURL on 2025-11-18T13:53:43.9945318</stringProp>
             </HeaderManager>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">has_modifier</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.item.hasModifierAssigned </stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
               <stringProp name="JSONPostProcessor.defaultValues">false</stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">modifierDetailsJson </stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.item.modifierDetails </stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Build Json">
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Build Json" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -1715,7 +1718,7 @@ vars.put(&quot;allOrderedItems&quot;, finalPayload)
 log.info(&quot;Final update payload: &quot; + finalPayload)</stringProp>
             </JSR223PostProcessor>
             <hashTree/>
-            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
               <stringProp name="ConstantTimer.delay">2000</stringProp>
               <stringProp name="RandomTimer.range">5000</stringProp>
             </UniformRandomTimer>
@@ -1817,21 +1820,21 @@ log.info(&quot;Final update payload: &quot; + finalPayload)</stringProp>
             <stringProp name="TestPlan.comments">Created from cURL on 2026-02-12T17:08:19.28</stringProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Item IDs">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Item IDs" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">item_id_for_kds</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.order.orderedItems[*].id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">ITEM_NOT_FOUND_IN_PLACEORDER_API</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Order ID">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Order ID" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">order_id</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.order.id </stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">ORDER_ID_NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Order Total Amount">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Order Total Amount" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">total_amount</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.order.totalAmount </stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
@@ -1922,7 +1925,7 @@ vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Content-Type" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -1941,6 +1944,95 @@ vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
             <stringProp name="RandomTimer.range">5000</stringProp>
           </UniformRandomTimer>
           <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Check to Make Items Ready">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() == &quot;200&quot; || prev.getResponseCode() == 200) {
+	log.info(&quot;##############################Setting canMarkReady value True&quot;)
+    vars.put(&quot;canMarkReady&quot;, &quot;true&quot;)
+} else {
+	log.info(&quot;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;Setting canMarkReady value False&quot;)
+    vars.put(&quot;canMarkReady&quot;, &quot;false&quot;)
+}</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Mark Item ready If PUSH successfull">
+          <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="KDS - Make Items READY">
+            <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/ordered-items/status</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;orderedItemIds&quot;: ${nonServedItemArray},&#xd;
+  &quot;itemStatus&quot;: &quot;READY&quot;&#xd;
+}&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
+                </elementProp>
+              </collectionProp>
+              <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
+              <stringProp name="ConstantTimer.delay">5000</stringProp>
+              <stringProp name="TestPlan.comments">10 Minutes</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Print ids before serve">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
+
+log.info(&quot;Item Ids to Ready: ==================&gt;&quot; + vars.get(&quot;nonServedItemArray&quot;))
+</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Check Ready Completed">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">if (prev.getResponseCode() == &quot;200&quot;) {
+    vars.put(&quot;canMakeServed&quot;, &quot;true&quot;)
+} else {
+    vars.put(&quot;canMakeServed&quot;, &quot;false&quot;)
+}</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="KDS - View Dashboard" enabled="false">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:56:33.629</stringProp>
@@ -1992,126 +2084,89 @@ vars.put(&quot;random_waiter_token&quot;, token)</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="KDS - Make Items READY To be SERVED">
-          <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          <stringProp name="HTTPSampler.domain">${server}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/ordered-items/status</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;orderedItemIds&quot;: ${nonServedItemArray},&#xd;
-  &quot;itemStatus&quot;: &quot;READY&quot;&#xd;
-}&#xd;
-</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-        </HTTPSamplerProxy>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Mark Item Serve if They Are Ready">
+          <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Authorization" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
-              </elementProp>
-            </collectionProp>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Mark Items SERVED">
             <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          </HeaderManager>
-          <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">5000</stringProp>
-            <stringProp name="TestPlan.comments">10 Minutes</stringProp>
-          </ConstantTimer>
-          <hashTree/>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Print ids before serve" enabled="true">
-            <stringProp name="scriptLanguage">groovy</stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="script">
-
-log.info(&quot;Item Ids to Ready: ==================&gt;&quot; + vars.get(&quot;nonServedItemArray&quot;))
-</stringProp>
-          </JSR223PreProcessor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Mark Items SERVED">
-          <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          <stringProp name="HTTPSampler.domain">${server}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/ordered-items/status</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/ordered-items/status</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
   &quot;orderedItemIds&quot;: ${nonServedItemArray},&#xd;
   &quot;itemStatus&quot;: &quot;SERVED&quot;&#xd;
 }&#xd;
 </stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Authorization" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
-              </elementProp>
-            </collectionProp>
-            <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          </HeaderManager>
-          <hashTree/>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">2000</stringProp>
-            <stringProp name="RandomTimer.range">5000</stringProp>
-          </UniformRandomTimer>
-          <hashTree/>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Print ids before serve" enabled="true">
-            <stringProp name="scriptLanguage">groovy</stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="script">
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
+                </elementProp>
+              </collectionProp>
+              <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+            </HeaderManager>
+            <hashTree/>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">5000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Print ids before serve">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
 
 log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot;nonServedItemArray&quot;))
 </stringProp>
-          </JSR223PreProcessor>
-          <hashTree/>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Check Items Served Or not">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">if (prev.getResponseCode() == &quot;200&quot;) {
+    vars.put(&quot;isItemsServed&quot;, &quot;true&quot;)
+} else {
+    vars.put(&quot;isItemsServed&quot;, &quot;false&quot;)
+}</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Marking As Served Failed">
-          <stringProp name="IfController.condition">&quot;${JMeterThread.last_sample_ok}&quot; == false</stringProp>
+          <stringProp name="IfController.condition">!${JMeterThread.last_sample_ok}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
           <stringProp name="TestPlan.comments">If Payment is unsuccessfull, cancel the order</stringProp>
         </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cancel The Order" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cancel The Order">
             <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:52:32.605</stringProp>
             <stringProp name="HTTPSampler.domain">${server}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2204,42 +2259,61 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
             <hashTree/>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Initiate Checkout">
-          <stringProp name="HTTPSampler.domain">${server}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/${orderId}/initiate-checkout</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-        </HTTPSamplerProxy>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="After Items Served">
+          <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Authorization" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
-              </elementProp>
-            </collectionProp>
-            <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          </HeaderManager>
-          <hashTree/>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="false">
-            <stringProp name="ConstantTimer.delay">2000</stringProp>
-            <stringProp name="RandomTimer.range">5000</stringProp>
-          </UniformRandomTimer>
-          <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">5000</stringProp>
-          </ConstantTimer>
-          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Initiate Checkout">
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/${orderId}/initiate-checkout</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
+                </elementProp>
+              </collectionProp>
+              <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+            </HeaderManager>
+            <hashTree/>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="false">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">5000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">5000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="After Initiate Checkout Success">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">if (prev.getResponseCode() == &quot;200&quot;) {
+    vars.put(&quot;initiateDone&quot;, &quot;true&quot;)
+} else {
+    vars.put(&quot;initiateDone&quot;, &quot;false&quot;)
+}</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MANAGER - LIVE ORDERS" enabled="false">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-23T15:05:46.29</stringProp>
@@ -2487,61 +2561,16 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CASHIER - Make Payment And Close Transaction">
-          <stringProp name="HTTPSampler.domain">${server}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/payment</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
-    &quot;paymentMethod&quot;: &quot;CASH&quot;,&#xd;
-    &quot;amountPaid&quot;: ${total_amount}&#xd;
-  }</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Authorization" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer ${__groovy(props.get(&quot;cashier_&quot; + vars.get(&quot;restaurant_id&quot;)))} </stringProp>
-              </elementProp>
-            </collectionProp>
-            <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          </HeaderManager>
-          <hashTree/>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">2000</stringProp>
-            <stringProp name="RandomTimer.range">5000</stringProp>
-          </UniformRandomTimer>
-          <hashTree/>
-        </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Payment Failed">
-          <stringProp name="IfController.condition">&quot;${JMeterThread.last_sample_ok}&quot; == false</stringProp>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="After Initiate Checkout Completed">
+          <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
-          <stringProp name="TestPlan.comments">If Payment is unsuccessfull, cancel the order</stringProp>
         </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cancel The Order" enabled="true">
-            <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:52:32.605</stringProp>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CASHIER - Make Payment And Close Transaction">
             <stringProp name="HTTPSampler.domain">${server}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/${order_id}/cancel/request?restaurantId=${restaurant_id}</stringProp>
+            <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/payment</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -2550,173 +2579,241 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;cancellationReason&quot;:&quot;Manager is cancelling order in case of failure&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;paymentMethod&quot;: &quot;CASH&quot;,&#xd;
+    &quot;amountPaid&quot;: ${total_amount}&#xd;
+  }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
               <collectionProp name="HeaderManager.headers">
-                <elementProp name="accept" elementType="Header">
-                  <stringProp name="Header.name">accept</stringProp>
-                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
-                </elementProp>
-                <elementProp name="accept-language" elementType="Header">
-                  <stringProp name="Header.name">accept-language</stringProp>
-                  <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
-                </elementProp>
-                <elementProp name="authorization" elementType="Header">
-                  <stringProp name="Header.name">authorization</stringProp>
-                  <stringProp name="Header.value">Bearer ${__groovy(props.get(&quot;manager_&quot; + vars.get(&quot;restaurant_id&quot;)))} </stringProp>
-                </elementProp>
-                <elementProp name="content-type" elementType="Header">
-                  <stringProp name="Header.name">content-type</stringProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
                   <stringProp name="Header.value">application/json</stringProp>
                 </elementProp>
-                <elementProp name="locale" elementType="Header">
-                  <stringProp name="Header.name">locale</stringProp>
-                  <stringProp name="Header.value">en</stringProp>
-                </elementProp>
-                <elementProp name="origin" elementType="Header">
-                  <stringProp name="Header.name">origin</stringProp>
-                  <stringProp name="Header.value">https://qa-manager.qrcodetableordering.com</stringProp>
-                </elementProp>
-                <elementProp name="priority" elementType="Header">
-                  <stringProp name="Header.name">priority</stringProp>
-                  <stringProp name="Header.value">u=1, i</stringProp>
-                </elementProp>
-                <elementProp name="referer" elementType="Header">
-                  <stringProp name="Header.name">referer</stringProp>
-                  <stringProp name="Header.value">https://qa-manager.qrcodetableordering.com/</stringProp>
-                </elementProp>
-                <elementProp name="sec-ch-ua" elementType="Header">
-                  <stringProp name="Header.name">sec-ch-ua</stringProp>
-                  <stringProp name="Header.value">&quot;Not(A:Brand&quot;;v=&quot;8&quot;, &quot;Chromium&quot;;v=&quot;144&quot;, &quot;Google Chrome&quot;;v=&quot;144&quot;</stringProp>
-                </elementProp>
-                <elementProp name="sec-ch-ua-mobile" elementType="Header">
-                  <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
-                  <stringProp name="Header.value">?0</stringProp>
-                </elementProp>
-                <elementProp name="sec-ch-ua-platform" elementType="Header">
-                  <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
-                  <stringProp name="Header.value">&quot;Windows&quot;</stringProp>
-                </elementProp>
-                <elementProp name="sec-fetch-dest" elementType="Header">
-                  <stringProp name="Header.name">sec-fetch-dest</stringProp>
-                  <stringProp name="Header.value">empty</stringProp>
-                </elementProp>
-                <elementProp name="sec-fetch-mode" elementType="Header">
-                  <stringProp name="Header.name">sec-fetch-mode</stringProp>
-                  <stringProp name="Header.value">cors</stringProp>
-                </elementProp>
-                <elementProp name="sec-fetch-site" elementType="Header">
-                  <stringProp name="Header.name">sec-fetch-site</stringProp>
-                  <stringProp name="Header.value">same-site</stringProp>
-                </elementProp>
-                <elementProp name="user-agent" elementType="Header">
-                  <stringProp name="Header.name">user-agent</stringProp>
-                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36</stringProp>
-                </elementProp>
-                <elementProp name="user-id" elementType="Header">
-                  <stringProp name="Header.name">user-id</stringProp>
-                  <stringProp name="Header.value">ba8340ae-b983-4320-8ef2-a2665a0e87cb</stringProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer ${__groovy(props.get(&quot;cashier_&quot; + vars.get(&quot;restaurant_id&quot;)))} </stringProp>
                 </elementProp>
               </collectionProp>
-              <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:52:32.605</stringProp>
+              <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
             </HeaderManager>
             <hashTree/>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">5000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
           </hashTree>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Clean The Table">
-          <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          <stringProp name="HTTPSampler.domain">${server}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/restaurant/api/v1/table/status</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Cancel Order If Payment Failed">
+            <stringProp name="IfController.condition">!${JMeterThread.last_sample_ok}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+            <stringProp name="TestPlan.comments">If Payment is unsuccessfull, cancel the order</stringProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cancel The Order">
+              <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:52:32.605</stringProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/restaurant/api/v1/order/${order_id}/cancel/request?restaurantId=${restaurant_id}</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;cancellationReason&quot;:&quot;Manager is cancelling order in case of failure&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="accept" elementType="Header">
+                    <stringProp name="Header.name">accept</stringProp>
+                    <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                  </elementProp>
+                  <elementProp name="accept-language" elementType="Header">
+                    <stringProp name="Header.name">accept-language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="authorization" elementType="Header">
+                    <stringProp name="Header.name">authorization</stringProp>
+                    <stringProp name="Header.value">Bearer ${__groovy(props.get(&quot;manager_&quot; + vars.get(&quot;restaurant_id&quot;)))} </stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="locale" elementType="Header">
+                    <stringProp name="Header.name">locale</stringProp>
+                    <stringProp name="Header.value">en</stringProp>
+                  </elementProp>
+                  <elementProp name="origin" elementType="Header">
+                    <stringProp name="Header.name">origin</stringProp>
+                    <stringProp name="Header.value">https://qa-manager.qrcodetableordering.com</stringProp>
+                  </elementProp>
+                  <elementProp name="priority" elementType="Header">
+                    <stringProp name="Header.name">priority</stringProp>
+                    <stringProp name="Header.value">u=1, i</stringProp>
+                  </elementProp>
+                  <elementProp name="referer" elementType="Header">
+                    <stringProp name="Header.name">referer</stringProp>
+                    <stringProp name="Header.value">https://qa-manager.qrcodetableordering.com/</stringProp>
+                  </elementProp>
+                  <elementProp name="sec-ch-ua" elementType="Header">
+                    <stringProp name="Header.name">sec-ch-ua</stringProp>
+                    <stringProp name="Header.value">&quot;Not(A:Brand&quot;;v=&quot;8&quot;, &quot;Chromium&quot;;v=&quot;144&quot;, &quot;Google Chrome&quot;;v=&quot;144&quot;</stringProp>
+                  </elementProp>
+                  <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                    <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                    <stringProp name="Header.value">?0</stringProp>
+                  </elementProp>
+                  <elementProp name="sec-ch-ua-platform" elementType="Header">
+                    <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                    <stringProp name="Header.value">&quot;Windows&quot;</stringProp>
+                  </elementProp>
+                  <elementProp name="sec-fetch-dest" elementType="Header">
+                    <stringProp name="Header.name">sec-fetch-dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                  <elementProp name="sec-fetch-mode" elementType="Header">
+                    <stringProp name="Header.name">sec-fetch-mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="sec-fetch-site" elementType="Header">
+                    <stringProp name="Header.name">sec-fetch-site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="user-agent" elementType="Header">
+                    <stringProp name="Header.name">user-agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="user-id" elementType="Header">
+                    <stringProp name="Header.name">user-id</stringProp>
+                    <stringProp name="Header.value">ba8340ae-b983-4320-8ef2-a2665a0e87cb</stringProp>
+                  </elementProp>
+                </collectionProp>
+                <stringProp name="TestPlan.comments">Created from cURL on 2026-02-24T12:52:32.605</stringProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Table CleanUp After Payment Completed">
+            <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+            <stringProp name="TestPlan.comments">If Payment is unsuccessfull, cancel the order</stringProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Clean The Table">
+              <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/restaurant/api/v1/table/status</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">PUT</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
   &quot;tableId&quot;: &quot;${table_id}&quot;,&#xd;
   &quot;tableStatus&quot;: &quot;CLEANUP&quot;&#xd;
 }</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
               </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Authorization" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
-              </elementProp>
-            </collectionProp>
-            <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          </HeaderManager>
-          <hashTree/>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">2000</stringProp>
-            <stringProp name="RandomTimer.range">5000</stringProp>
-          </UniformRandomTimer>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Make Table Available" enabled="true">
-          <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          <stringProp name="HTTPSampler.domain">${server}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/restaurant/api/v1/table/status</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
+              <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
+                  </elementProp>
+                </collectionProp>
+                <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+              </HeaderManager>
+              <hashTree/>
+              <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+                <stringProp name="RandomTimer.range">5000</stringProp>
+              </UniformRandomTimer>
+              <hashTree/>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Make Table Available After CleanUp">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+              <stringProp name="TestPlan.comments">If Payment is unsuccessfull, cancel the order</stringProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WAITER - Make Table Available">
+                <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.protocol">https</stringProp>
+                <stringProp name="HTTPSampler.path">/restaurant/api/v1/table/status</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">PUT</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
   &quot;tableId&quot;: &quot;${table_id}&quot;,&#xd;
   &quot;tableStatus&quot;: &quot;AVAILABLE&quot;&#xd;
 }</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Authorization" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
-              </elementProp>
-            </collectionProp>
-            <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
-          </HeaderManager>
-          <hashTree/>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">2000</stringProp>
-            <stringProp name="RandomTimer.range">5000</stringProp>
-          </UniformRandomTimer>
-          <hashTree/>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json</stringProp>
+                    </elementProp>
+                    <elementProp name="Authorization" elementType="Header">
+                      <stringProp name="Header.name">Authorization</stringProp>
+                      <stringProp name="Header.value">Bearer ${__groovy( def rid = vars.get(&quot;restaurant_id&quot;); def keys = props.keySet().findAll{ it.startsWith(&quot;waiter_&quot; + rid + &quot;_&quot;) }; keys.size() &gt; 0 ? props.get(keys[new Random().nextInt(keys.size())]) : &quot;&quot; )}</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                  <stringProp name="TestPlan.comments">Created from cURL on 2025-12-31T15:18:06.17</stringProp>
+                </HeaderManager>
+                <hashTree/>
+                <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
+                  <stringProp name="ConstantTimer.delay">2000</stringProp>
+                  <stringProp name="RandomTimer.range">5000</stringProp>
+                </UniformRandomTimer>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
         </hashTree>
         <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
           <boolProp name="displayJMeterProperties">false</boolProp>
