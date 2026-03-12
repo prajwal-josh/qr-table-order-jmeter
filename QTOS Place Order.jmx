@@ -575,7 +575,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         <stringProp name="TestPlan.comments">Order Placement Via Customer App</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
         <intProp name="ThreadGroup.num_threads">50000</intProp>
-        <intProp name="ThreadGroup.ramp_time">3600</intProp>
+        <intProp name="ThreadGroup.ramp_time">5400</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -2259,7 +2259,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
             <hashTree/>
           </hashTree>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="After Items Served" enabled="true">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="After Items Served">
           <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
@@ -2297,7 +2297,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
               <stringProp name="RandomTimer.range">5000</stringProp>
             </UniformRandomTimer>
             <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
               <stringProp name="ConstantTimer.delay">5000</stringProp>
             </ConstantTimer>
             <hashTree/>
@@ -2561,7 +2561,7 @@ log.info(&quot;Item Ids to serve: #######################&quot; + vars.get(&quot
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="After Initiate Checkout Completed" enabled="true">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="After Initiate Checkout Completed">
           <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
