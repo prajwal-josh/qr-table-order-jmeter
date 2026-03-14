@@ -132,7 +132,7 @@
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Waiter Login - Generate Token">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">5000</intProp>
-        <intProp name="ThreadGroup.ramp_time">180</intProp>
+        <intProp name="ThreadGroup.ramp_time">240</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -245,7 +245,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="KDS Login - Generate Token">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
-        <intProp name="ThreadGroup.ramp_time">60</intProp>
+        <intProp name="ThreadGroup.ramp_time">120</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -343,7 +343,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Cashier Login - Generate Token">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
-        <intProp name="ThreadGroup.ramp_time">60</intProp>
+        <intProp name="ThreadGroup.ramp_time">120</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -441,7 +441,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Manager Login - Generate Token">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
-        <intProp name="ThreadGroup.ramp_time">60</intProp>
+        <intProp name="ThreadGroup.ramp_time">120</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
