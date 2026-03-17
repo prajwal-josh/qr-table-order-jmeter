@@ -129,7 +129,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Waiter Login - Generate Token">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Waiter Login - Generate Token" enabled="true">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">5000</intProp>
         <intProp name="ThreadGroup.ramp_time">240</intProp>
@@ -242,7 +242,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         </ConstantTimer>
         <hashTree/>
       </hashTree>
-      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="KDS Login - Generate Token">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="KDS Login - Generate Token" enabled="true">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">120</intProp>
@@ -340,7 +340,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         </ConstantTimer>
         <hashTree/>
       </hashTree>
-      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Cashier Login - Generate Token">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Cashier Login - Generate Token" enabled="true">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">120</intProp>
@@ -438,7 +438,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         </ConstantTimer>
         <hashTree/>
       </hashTree>
-      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Manager Login - Generate Token">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Manager Login - Generate Token" enabled="true">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
         <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">120</intProp>
@@ -575,7 +575,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         <stringProp name="TestPlan.comments">Order Placement Via Customer App</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
         <intProp name="ThreadGroup.num_threads">50000</intProp>
-        <intProp name="ThreadGroup.ramp_time">3600</intProp>
+        <intProp name="ThreadGroup.ramp_time">7200</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -611,7 +611,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="filename">Start Session Radom In Order Of Restaurants.csv</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="variableNames">restaurant_name,restaurant_id,table_id</stringProp>
@@ -623,7 +623,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Session">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Session" enabled="true">
           <stringProp name="TestPlan.comments">Created from cURL on 2025-11-18T15:17:53.7165476</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -776,7 +776,7 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="View Items By Category">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="View Items By Category" enabled="true">
           <stringProp name="LoopController.loops">${category_id_matchNr}</stringProp>
         </LoopController>
         <hashTree>
@@ -915,7 +915,7 @@ if (index &lt; total) {
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - View Item List">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CUSTOMER - View Item List" enabled="true">
           <stringProp name="TestPlan.comments">Created from cURL on 2026-02-12T15:58:11.945</stringProp>
           <stringProp name="HTTPSampler.domain">${server}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1681,7 +1681,7 @@ try {
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Random Item Count For Update">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Random Item Count For Update" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
