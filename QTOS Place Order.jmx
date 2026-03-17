@@ -243,21 +243,6 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
           <stringProp name="ConstantTimer.delay">10000</stringProp>
         </ConstantTimer>
         <hashTree/>
-        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer" enabled="true">
-          <collectionProp name="load_profile">
-            <collectionProp name="-607510985">
-              <stringProp name="53">5</stringProp>
-              <stringProp name="1575">18</stringProp>
-              <stringProp name="53430">600</stringProp>
-            </collectionProp>
-            <collectionProp name="350870549">
-              <stringProp name="1575">18</stringProp>
-              <stringProp name="1575">18</stringProp>
-              <stringProp name="1567005">3000</stringProp>
-            </collectionProp>
-          </collectionProp>
-        </kg.apc.jmeter.timers.VariableThroughputTimer>
-        <hashTree/>
       </hashTree>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="KDS Login - Generate Token">
         <stringProp name="TestPlan.comments">Generating and Extracting Token For a Common Use In Next Thread Group</stringProp>
@@ -359,21 +344,6 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
           <stringProp name="ConstantTimer.delay">10000</stringProp>
         </ConstantTimer>
-        <hashTree/>
-        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer" enabled="true">
-          <collectionProp name="load_profile">
-            <collectionProp name="1953679228">
-              <stringProp name="49">1</stringProp>
-              <stringProp name="53">5</stringProp>
-              <stringProp name="53430">600</stringProp>
-            </collectionProp>
-            <collectionProp name="733147349">
-              <stringProp name="53">5</stringProp>
-              <stringProp name="53">5</stringProp>
-              <stringProp name="1567005">3000</stringProp>
-            </collectionProp>
-          </collectionProp>
-        </kg.apc.jmeter.timers.VariableThroughputTimer>
         <hashTree/>
       </hashTree>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Cashier Login - Generate Token">
@@ -477,21 +447,6 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
           <stringProp name="ConstantTimer.delay">10000</stringProp>
         </ConstantTimer>
-        <hashTree/>
-        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer" enabled="true">
-          <collectionProp name="load_profile">
-            <collectionProp name="1953679228">
-              <stringProp name="49">1</stringProp>
-              <stringProp name="53">5</stringProp>
-              <stringProp name="53430">600</stringProp>
-            </collectionProp>
-            <collectionProp name="733147349">
-              <stringProp name="53">5</stringProp>
-              <stringProp name="53">5</stringProp>
-              <stringProp name="1567005">3000</stringProp>
-            </collectionProp>
-          </collectionProp>
-        </kg.apc.jmeter.timers.VariableThroughputTimer>
         <hashTree/>
       </hashTree>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Manager Login - Generate Token">
@@ -630,21 +585,6 @@ log.info(&quot;Saved key: waiter_&quot; + restaurantId + &quot;_&quot; + waiterC
         <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
           <stringProp name="ConstantTimer.delay">10000</stringProp>
         </ConstantTimer>
-        <hashTree/>
-        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer" enabled="true">
-          <collectionProp name="load_profile">
-            <collectionProp name="1953679228">
-              <stringProp name="49">1</stringProp>
-              <stringProp name="53">5</stringProp>
-              <stringProp name="53430">600</stringProp>
-            </collectionProp>
-            <collectionProp name="733147349">
-              <stringProp name="53">5</stringProp>
-              <stringProp name="53">5</stringProp>
-              <stringProp name="1567005">3000</stringProp>
-            </collectionProp>
-          </collectionProp>
-        </kg.apc.jmeter.timers.VariableThroughputTimer>
         <hashTree/>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Order Placement Via Customer App">
@@ -3136,7 +3076,7 @@ if (responseCode.startsWith(&quot;4&quot;) || responseCode.startsWith(&quot;5&qu
 }</stringProp>
         </JSR223PostProcessor>
         <hashTree/>
-        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer" enabled="true">
+        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer">
           <collectionProp name="load_profile">
             <collectionProp name="1951230952">
               <stringProp name="51">3</stringProp>
